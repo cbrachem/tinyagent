@@ -1,0 +1,89 @@
+:root {
+  color-scheme: dark;
+  --bg1: #02020a;
+  --bg2: #09091a;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at center, rgba(40, 20, 80, 0.35), transparent 40%),
+    linear-gradient(180deg, var(--bg2), var(--bg1));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.sign {
+  font-size: clamp(3.5rem, 12vw, 11rem);
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  user-select: none;
+  color: hsl(320 100% 70%);
+  text-shadow:
+    0 0 6px currentColor,
+    0 0 14px currentColor,
+    0 0 28px currentColor,
+    0 0 56px color-mix(in srgb, currentColor 65%, white),
+    0 0 96px color-mix(in srgb, currentColor 40%, transparent);
+  animation:
+    bounce 1.25s cubic-bezier(.2,.8,.2,1) infinite,
+    neon 6s linear infinite;
+  will-change: transform, filter, color;
+  position: relative;
+}
+
+.sign::before {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  color: transparent;
+  text-shadow:
+    0 0 18px currentColor,
+    0 0 40px currentColor;
+  filter: blur(8px);
+  opacity: 0.65;
+  transform: translateY(0.08em);
+  pointer-events: none;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(-12px) scale(1); }
+  50% { transform: translateY(14px) scale(1.03); }
+}
+
+@keyframes neon {
+  0%   { color: hsl(320 100% 70%); }
+  25%  { color: hsl(20 100% 70%); }
+  50%  { color: hsl(160 100% 70%); }
+  75%  { color: hsl(240 100% 72%); }
+  100% { color: hsl(320 100% 70%); }
+}
+
+.floor-glow {
+  position: absolute;
+  bottom: 10%;
+  width: min(70vw, 900px);
+  height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.18), rgba(255,255,255,0.03) 45%, transparent 70%);
+  filter: blur(16px);
+  opacity: 0.8;
+  pointer-events: none;
+  animation: pulse 1.25s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scaleX(0.95); opacity: 0.55; }
+  50% { transform: scaleX(1.05); opacity: 0.95; }
+}
