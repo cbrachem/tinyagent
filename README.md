@@ -13,3 +13,8 @@ The first two sentences of the system prompt are borrowed from [Pi](https://pi.d
 ![Demo session of the script generating and editing a web page.](./demo/session.jpg)
 
 The output files can be found under [demo](./demo).
+
+
+## Update
+
+[with_tools.py](./with_tools.py) contains a version that uses OpenAI's newer Responses API and uses their actual tool-calling scheme, and is running gpt-5.6-luna.
