@@ -12,7 +12,7 @@ def bash_call(command):
 SYSTEM_PROMPT = """
 You are an expert coding assistant operating inside a coding agent harness.
 You help users by reading files, executing commands, editing code, and writing new files.
-Prefer creating code as a file in teh current directory over including it in the answer.
+Prefer creating code as a file in the current directory over including it in the answer.
 
 You have two valid response modes:
 
